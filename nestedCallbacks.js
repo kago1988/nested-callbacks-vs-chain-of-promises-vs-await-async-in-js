@@ -1,33 +1,28 @@
-function fetchUser(userId) {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve({ id: userId, name: "John Doe" }), 1000);
-  });
+function fetchUser(userId, callback) {
+  setTimeout(() => {
+    const user = { id: userId, name: "John Doe" };
+    callback(user);
+  }, 1000);
 }
 
-function fetchPosts(userId) {
-  return new Promise((resolve) => {
-    setTimeout(
-      () =>
-        resolve([
-          { id: 1, title: "First Post" },
-          { id: 2, title: "Second Post" },
-        ]),
-      1000
-    );
-  });
+function fetchPosts(userId, callback) {
+  setTimeout(() => {
+    const posts = [
+      { id: 1, title: "First Post" },
+      { id: 2, title: "Second Post" },
+    ];
+    callback(posts);
+  }, 1000);
 }
 
-function fetchComments(postId) {
-  return new Promise((resolve) => {
-    setTimeout(
-      () =>
-        resolve([
-          { id: 1, text: "Great post!" },
-          { id: 2, text: "Thanks for sharing" },
-        ]),
-      1000
-    );
-  });
+function fetchComments(postId, callback) {
+  setTimeout(() => {
+    const comments = [
+      { id: 1, text: "Great post!" },
+      { id: 2, text: "Thanks for sharing" },
+    ];
+    callback(comments);
+  }, 1000);
 }
 
 function nestedCallbacks() {
